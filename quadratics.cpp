@@ -2,17 +2,19 @@
 //
 // Created by Cristiano Sellitto
 // Created in October 2022
-// A program that finds if function f is quadratic or linear
+// A program that finds if function f is quadratic and calculates the roots
 
 #include <iostream>
+#include <cmath>
 
 int aValue;
 int bValue;
 int cValue;
+double rootOne;
+double rootTwo;
 
 int main() {
-    // Finds if function f is quadratic or linear and
-    // prints basic info about function f
+    // Finds if function function f is quadratic and calculates the roots
 
     std::cout << "f(x) = ax² + bx + c";
     std::cout << std::endl;
@@ -24,20 +26,23 @@ int main() {
     std::cout << "Enter the value of c: ";
     std::cin >> cValue;
     std::cout << std::endl;
-    if (aValue == 0) {
-        std::cout << "This is a linear function.";
+    if (aValue != 0) {
+        std::cout << "This is a quadratic function.";
+        rootOne = (-bValue + sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
+            2 * aValue
+        );
+        rootTwo = (-bValue - sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
+            2 * aValue
+        );
         std::cout << std::endl;
         std::cout << std::endl;
-        std::cout << "The slope of function f is " << bValue;
+        std::cout << "Function f's roots are (" << rootOne;
+        std::cout << ", 0) and (" << rootTwo << ", 0)";
         std::cout << std::endl;
     } else {
-        std::cout << "This is a quadratic function.";
-        std::cout << std::endl;
-        std::cout << "The vertical stretch of function f is " << aValue;
+        std::cout << "This is a not a quadratic function.";
         std::cout << std::endl;
     }
-    std::cout << "The y-intercept of function f is (0, " << cValue << ")";
-    std::cout << std::endl;
 
     std::cout << std::endl;
     std::cout << "Done." << std::endl;
