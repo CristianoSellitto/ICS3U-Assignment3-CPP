@@ -10,6 +10,7 @@
 int aValue;
 int bValue;
 int cValue;
+double discriminant;
 double rootOne;
 double rootTwo;
 
@@ -28,17 +29,26 @@ int main() {
     std::cout << std::endl;
     if (aValue != 0) {
         std::cout << "This is a quadratic function.";
-        rootOne = (-bValue + sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
-            2 * aValue
-        );
-        rootTwo = (-bValue - sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
-            2 * aValue
-        );
         std::cout << std::endl;
-        std::cout << std::endl;
-        std::cout << "Function f's roots are (" << rootOne;
-        std::cout << ", 0) and (" << rootTwo << ", 0)";
-        std::cout << std::endl;
+        discriminant = pow(bValue, 2) - 4 * aValue * cValue;
+        if (discriminant == 0) {
+            rootOne = (-bValue + sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
+                2 * aValue);
+            std::cout << "Function f's root is (" << rootOne << ", 0)";
+            std::cout << std::endl;
+        } else if (discriminant > 0) {
+            rootOne = (-bValue + sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
+                2 * aValue);
+            rootTwo = (-bValue - sqrt(pow(bValue, 2) - 4 * aValue * cValue)) / (
+                2 * aValue);
+            std::cout << "Function f's roots are (" << rootOne;
+            std::cout << ", 0) and (" << rootTwo << ", 0)";
+            std::cout << std::endl;
+        } else {
+            std::cout << std::endl;
+            std::cout << "Function f has no roots";
+            std::cout << std::endl;
+        }
     } else {
         std::cout << "This is a not a quadratic function.";
         std::cout << std::endl;
